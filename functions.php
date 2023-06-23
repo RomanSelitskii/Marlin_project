@@ -70,7 +70,7 @@ else {
     $sql = "UPDATE status SET status=:status WHERE user_id=:user_id";
 }
     $stmt = $conn->prepare($sql);
-    $stmt->execute(["status" => $status, "user_id" => $user_id]);
+    $result = $stmt->execute(["status" => $status, "user_id" => $user_id]);
 }
 
 
