@@ -57,7 +57,7 @@ if ((empty($_SESSION['msg'])) || (!is_admin(get_authenticated_user()))) {
                 unset($_SESSION["error"]);?>
             </div>
         <?php endif;?>
-        <form action="create_user_handler.php" method="post">
+        <form action="create_user_handler.php" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-xl-6">
                     <div id="panel-1" class="panel">
