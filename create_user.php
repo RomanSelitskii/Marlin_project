@@ -2,8 +2,6 @@
 session_start();
 require "function_users.php";
 
-
-
 if ((empty($_SESSION['msg'])) || (!is_admin(get_authenticated_user()))) {
     header("Location: /page_login.php");
 }
@@ -69,25 +67,25 @@ if ((empty($_SESSION['msg'])) || (!is_admin(get_authenticated_user()))) {
                                 <!-- username -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Имя</label>
-                                    <input type="text" name="username" id="simpleinput" class="form-control">
+                                    <input type="text" value="<?php echo $user['users_information']['username'];?>" name="name" id="simpleinput" class="form-control">
                                 </div>
 
                                 <!-- title -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Место работы</label>
-                                    <input type="text" name="job_title" id="simpleinput" class="form-control">
+                                    <input type="text" value="<?php echo $user['users_information']['job_title'];?>" name="job_title" id="simpleinput" class="form-control">
                                 </div>
 
                                 <!-- tel -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Номер телефона</label>
-                                    <input type="text" name="phone" id="simpleinput" class="form-control">
+                                    <input type="text" value="<?php echo $user['users_information']['phone'];?>" name="phone" id="simpleinput" class="form-control">
                                 </div>
 
                                 <!-- address -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Адрес</label>
-                                    <input type="text" name="address" id="simpleinput" class="form-control">
+                                    <input type="text" value="<?php echo $user['users_information']['address'];?>" name="address" id="simpleinput" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -104,7 +102,7 @@ if ((empty($_SESSION['msg'])) || (!is_admin(get_authenticated_user()))) {
                                 <!-- email -->
                                 <div class="form-group">
                                     <label class="form-label" for="simpleinput">Email</label>
-                                    <input required type="text" name="email" id="simpleinput" class="form-control">
+                                    <input disabled type="text" value="<?php echo $user['users']['email'];?>" name="email" id="simpleinput" class="form-control">
                                 </div>
 
                                 <!-- password -->
