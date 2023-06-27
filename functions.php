@@ -73,6 +73,27 @@ else {
     $result = $stmt->execute(["status" => $status, "user_id" => $user_id]);
 }
 
+function get_user_by_id($user_id) {
+    $id = $user_id;
+    $pdo = new PDO ('mysql:host=localhost;dbname=my_project', "root", "");
+    $sql = "SELECT * FROM users WHERE id=:id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(['id' => $id]);
+    $tmp = $stmt->fetchAll();
+    $result['users'] = ['id' => $tmp[0]['id'], 'email' => $tmp[0]['email']];
+    $sql = "SELECT * FROM users_information WHERE user_id=:user_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute(["user_id" => $user_id]);
+    $tmp = $stmt->fetchAll();
+    $result['users_information'] = [
+        "username" => $tmp[0]['username'],
+        "job_title" => $tmp[0]['job_title'],
+        "phone" => $tmp[0]['phone'],
+        "address" => $tmp[0]['address']
+    ];
+    return $result;
+
+}
 
 
 
